@@ -1,0 +1,30 @@
+@(title: String, head: Html = Html(""))(content: Html)(implicit lang: Lang)
+@import play.api.Play.current
+@import play.api.Play
+@import utils.BuildInfo._
+<!DOCTYPE html>
+<html class="no-js" lang="@lang.language">
+<head>
+    <title>@title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css?"+buildTime)">
+    <!--[if lt IE 9]>
+    <script src="/assets/javascripts/respond.js"></script>
+    <![endif]-->
+
+    <script>var require = { urlArgs: '@buildTime' };</script>
+    @if(Play.isDev || Play.isTest) {
+    <script data-main="/assets/javascripts/main" src="/webjars/requirejs/2.1.11/require.js"></script>
+    }
+    @if(Play.isProd) {
+    <script data-main="/assets/javascripts-min/main" src="/webjars/requirejs/2.1.11/require.js"></script>
+    }
+    @head
+</head>
+<!--[if IE 8]><body class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><body> <!--<![endif]-->
+@content
+</body>
+</html>

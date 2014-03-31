@@ -1,0 +1,6 @@
+@import "bootstrap";
+
+.skeleton-container {
+    opacity:0;
+    &.ready { opacity:1;}
+}

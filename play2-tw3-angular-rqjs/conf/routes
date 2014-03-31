@@ -5,6 +5,15 @@
 # Home page
 GET     /                           controllers.Application.index
 
+GET     /api/todos                   controllers.TodoApi.search(query: String ?="")
+GET     /api/todos/exists            controllers.TodoApi.nameExists(name: String)
+GET     /api/todos/:id               controllers.TodoApi.get(id: String)
+POST    /api/todos                   controllers.TodoApi.create
+PUT     /api/todos/:id/done          controllers.TodoApi.updateStatus(id: String, done: Boolean = true)
+PUT     /api/todos/:id/notdone       controllers.TodoApi.updateStatus(id: String, done: Boolean = false)
+PUT     /api/todos/:id               controllers.TodoApi.update(id: String)
+DELETE  /api/todos/:id               controllers.TodoApi.delete(id: String)
+
 # Webjars
 GET     /webjars/*file                    controllers.WebJarAssets.at(file)
 

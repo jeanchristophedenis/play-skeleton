@@ -1,4 +1,4 @@
-define(['jquery','angular', 'angular-resource','angular-route', 'angular-cookies', 'angular-animate', 'ui-utils', './directives', 'app/sample'],function($, angular){
+define(['jquery','angular', 'angular-resource','angular-route', 'angular-cookies', 'angular-animate', 'ui-utils', './directives', 'app/todo'],function($, angular){
 
     'use strict';
 
@@ -32,5 +32,5 @@ define(['jquery','angular', 'angular-resource','angular-route', 'angular-cookies
         };
     }]);
 
-    angular.bootstrap(document, ['ngResource', 'ngRoute', 'ngCookies', 'ngAnimate', 'ui.utils', 'directives', 'app.services', 'sample']);
+    angular.bootstrap(document, ['ngResource', 'ngRoute', 'ngCookies', 'ngAnimate', 'ui.utils', 'directives', 'app.services', 'todo']);
 });

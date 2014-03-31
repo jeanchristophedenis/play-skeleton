@@ -1,5 +1,5 @@
 requirejs.config({
-    packages: ['app/sample'],
+    packages: ['app/todo'],
     shim: {
         'jquery': { exports: '$' },
         'jquery-cookie' : ['jquery'],

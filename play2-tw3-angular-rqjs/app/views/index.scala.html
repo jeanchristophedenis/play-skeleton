@@ -1,9 +1,26 @@
 @(message: String)(implicit lang: Lang)
 
 @main("Welcome to Play") {
-<div class="container skeleton-container" data-ng-controller="SampleCtrl" ng-class="{'ready':pageReady()}">
-   <div class="row">
-       <div class="col-sm-12">{{message}}</div>
-   </div>
+<div class="container skeleton-container" data-ng-controller="TodoCtrl" ng-class="{'ready':ctrlReady}">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="todo in todos">
+                        <td>{{todo.name}}</td>
+                        <td>{{todo.description}}</td>
+                        <td>{{todo.done}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 }

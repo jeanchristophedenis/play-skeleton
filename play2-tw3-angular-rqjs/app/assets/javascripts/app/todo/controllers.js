@@ -1,15 +1,31 @@
 define(['angular', 'underscore'], function(angular, _) {
     'use strict';
 
-    var SampleCtrl = function($scope, $q, sampleServices, appServices) {
-        $scope.message = "Hi there!";
-        $scope.pageReady = function(){ return appServices.isReady(); }
-        appServices.ready();
+    var TodoCtrl = function($scope, $q, todoServices, appServices) {
+
+        $scope.ctrlReady = false;
+        $scope.todos = []
+        $scope.isLoading = function(){ return !appServices.isReady(); }
+
+        appServices.loading();
+        todoServices.query(
+            {},
+            function(todos){
+                $scope.todos = todos
+                appServices.ready();
+            },
+            function(error){
+                $scope.todos = [];
+                appServices.ready();
+            }
+        )
+
+        $scope.ctrlReady = true;
     }
 
-    SampleCtrl.$inject = ['$scope', '$q', 'sampleServices', 'appServices']
+    TodoCtrl.$inject = ['$scope', '$q', 'todoServices', 'appServices']
 
     return {
-      SampleCtrl: SampleCtrl
+      TodoCtrl: TodoCtrl
     };
 });

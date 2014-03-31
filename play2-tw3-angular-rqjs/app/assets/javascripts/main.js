@@ -2,7 +2,7 @@
     'use strict';
 
     requirejs.config({
-      packages: ['app/sample'],
+      packages: ['app/todo'],
       shim: {
         'jquery': { exports: '$' },
         'underscore' : { exports: '_' },

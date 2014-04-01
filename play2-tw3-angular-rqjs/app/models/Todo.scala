@@ -46,7 +46,7 @@ object TodoDB extends MongoModel[Todo, BSONObjectID] {
     BSONRegex(tokens, "i")
   }
 
-  def search(query: String) = {
+  def search(query: String, sort: JsObject = Json.obj("name" -> 1)) = {
 
     val r = searchRegex(query)
 
@@ -57,7 +57,7 @@ object TodoDB extends MongoModel[Todo, BSONObjectID] {
       )
     )
 
-    find(query = regexQuery, sort = Json.obj("name" -> 1), limit = 100)
+    find(query = regexQuery, sort = sort, limit = 100)
   }
 
   def findByName(name: String) = findOne(Json.obj("name" -> name))

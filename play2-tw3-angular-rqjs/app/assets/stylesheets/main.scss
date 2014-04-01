@@ -5,6 +5,7 @@ $warningColorDisabled:rgba($warningColor, .1);
 $warningColorNoHover:rgba($warningColor, .7);
 
 .skeleton-container {
+    padding-top:50px;
     opacity:0;
     &.ready { opacity:1;}
 }
@@ -29,5 +30,24 @@ $warningColorNoHover:rgba($warningColor, .7);
         &.disabled, &.disabled:hover {
             color:$warningColorDisabled;
         }
+    }
+}
+
+form {
+
+    .error-info {
+        color:#f30;
+    }
+
+    .validation-info {
+        color:#2ba6cb;
+    }
+
+    input.ng-invalid.ng-dirty, select.ng-invalid.ng-dirty {
+        background-color: #ffffc5;
+        color:#f30;
+    }
+
+    input.ng-valid.ng-dirty, select.ng-valid.ng-dirty {
     }
 }

@@ -17,9 +17,9 @@ object TodoApi extends Api {
   def search(query: String) = Action.async {
 
     (if(query.isEmpty) {
-      TodoDB.find(limit = 100)
+      TodoDB.find(limit = 100, sort = Json.obj("name" -> 1))
     } else {
-      TodoDB.search(query)
+      TodoDB.search(query, sort = Json.obj("name" -> 1))
     }).map { markers => Ok(Json.toJson(markers)(Writes.seq(TodoFormat.todoApiWrites))) }
 
   }

@@ -1,11 +1,11 @@
-@import "bootstrap";
+@import "gumby/gumby";
 
 $warningColor: #e66a6a;
 $warningColorDisabled:rgba($warningColor, .1);
 $warningColorNoHover:rgba($warningColor, .7);
 
 .skeleton-container {
-    padding-top:60px;
+    padding-top:50px;
     opacity:0;
     &.ready { opacity:1;}
 }

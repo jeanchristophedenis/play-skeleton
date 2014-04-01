@@ -1,0 +1,46 @@
+@(message: String)(implicit lang: Lang)
+
+@main("Welcome to Play") {
+<div class="container skeleton-container" data-ng-controller="TodoCtrl" ng-class="{'ready':ctrlReady}">
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="new-todo-form" name="newTodoForm" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" required class="form-control" id="name" placeholder="name" data-ng-model="newTodo.name">
+                    </div>
+                    <label for="description" class="col-sm-2 control-label">Description</label>
+                    <div class="col-sm-4">
+                        <input type="text" required class="form-control" id="description" placeholder="description" data-ng-model="newTodo.description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 col-sm-offset-9">
+                        <button type="submit" class="btn btn-primary btn" ng-class="{'disabled' : newTodoForm.$invalid || isLoading()}" ng-click="newTodoForm.$invalid || create()" ><span class="glyphicon glyphicon-save"></span>&nbsp;Save</button>
+                        <button class="btn btn-warning btn" ng-click="resetForm()">Reset</button>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Done ?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="todo in todos">
+                        <td><span class="glyphicon glyphicon-remove-circle icon-danger" ng-click="remove($index)"></span></td>
+                        <td>{{todo.name}}</td>
+                        <td>{{todo.description}}</td>
+                        <td><input type="checkbox" ng-model="todo.done" ng-change="updateStatus($index)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+}

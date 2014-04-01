@@ -1,4 +1,4 @@
-define(['jquery','angular', 'angular-resource','angular-route', 'angular-cookies', 'angular-animate', 'ui-utils', './directives', 'app/todo'],function($, angular){
+define(['jquery','angular', 'angular-resource','angular-route', 'angular-cookies', 'angular-animate', 'ui-utils', './directives'],function($, angular){
 
     'use strict';
 
@@ -32,5 +32,9 @@ define(['jquery','angular', 'angular-resource','angular-route', 'angular-cookies
         };
     }]);
 
-    angular.bootstrap(document, ['ngResource', 'ngRoute', 'ngCookies', 'ngAnimate', 'ui.utils', 'directives', 'app.services', 'todo']);
+    // Here we load all angular modules & apps. Conditional loading depending on page content can be made here...
+    require(['app/todo'], function(){
+        angular.bootstrap(document, ['ngResource', 'ngRoute', 'ngCookies', 'ngAnimate', 'ui.utils', 'directives', 'app.services', 'todo']);
+    });
+
 });

@@ -36,13 +36,13 @@ seq(jasmineSettings : _*)
 
 appJsDir <+= baseDirectory / "app/assets/javascripts"
 
-appJsLibDir <+= baseDirectory / "test/assets/admin"
+appJsLibDir <+= baseDirectory / "test/assets/lib"
 
 jasmineTestDir <+= baseDirectory / "test/assets"
 
 jasmineConfFile <+= baseDirectory / "test/assets/test.dependencies.js"
 
-jasmineRequireJsFile <+= baseDirectory / "test/assets/admin/require-2.1.11.js"
+jasmineRequireJsFile <+= baseDirectory / "test/assets/lib/require-2.1.11.js"
 
 jasmineRequireConfFile <+= baseDirectory / "test/assets/require.conf.js"
 

@@ -4,9 +4,10 @@
 <div class="container skeleton-container" data-ng-controller="TodoCtrl" ng-class="{'ready':ctrlReady}">
     <div class="row">
         <div class="col-sm-12">
-            <table class="table">
+            <table class="table table-striped table-responsive">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Status</th>
@@ -14,6 +15,7 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="todo in todos">
+                        <td><span class="glyphicon glyphicon-remove-circle icon-danger" ng-click="remove($index)"></span></td>
                         <td>{{todo.name}}</td>
                         <td>{{todo.description}}</td>
                         <td>{{todo.done}}</td>

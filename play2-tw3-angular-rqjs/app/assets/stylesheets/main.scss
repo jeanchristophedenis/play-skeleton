@@ -1,6 +1,33 @@
 @import "bootstrap";
 
+$warningColor: #e66a6a;
+$warningColorDisabled:rgba($warningColor, .1);
+$warningColorNoHover:rgba($warningColor, .7);
+
 .skeleton-container {
     opacity:0;
     &.ready { opacity:1;}
+}
+
+.icon-danger {
+    cursor:pointer;
+}
+
+.touch {
+    .icon-danger {
+        color:$warningColor;
+         &.disabled {
+            color:$warningColorDisabled;
+         }
+    }
+}
+
+.no-touch {
+    .icon-danger {
+        color:$warningColorNoHover;
+        &:hover { color:$warningColor; }
+        &.disabled, &.disabled:hover {
+            color:$warningColorDisabled;
+        }
+    }
 }

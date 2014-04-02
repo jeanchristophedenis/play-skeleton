@@ -6,9 +6,7 @@
       shim: {
         'jquery': { exports: '$' },
         'underscore' : { exports: '_' },
-        'jquery-cookie' : ['jquery'],
         'angular' : { exports : 'angular' },
-        'ui-utils' : ['angular'],
         'angular-resource' : ['angular'],
         'angular-route': ['angular'],
         'angular-cookies' : ['angular'],
@@ -19,8 +17,7 @@
         'angular-i18-pt' : ['angular']
       },
       paths: {
-        'modernizr' : '/webjars/modernizr/2.6.2/modernizr.min',
-        'placeholders':'lib/placeholders.min',
+        'modernizr' : 'lib/gumby/libs/modernizr-2.6.2.min',
         'jquery': ['//code.jquery.com/jquery-1.10.2.min', '/webjars/jquery/1.10.2/jquery.min'],
         'moment':['//cdnjs.cloudflare.com/ajax/libs/moment.js/2.3.1/moment.min', '/webjars/momentjs/2.3.1/min/moment.min'],
         'angular': ['//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min', '/webjars/angularjs/1.2.14/angular.min'],
@@ -40,8 +37,8 @@
         console.log(err);
     };
 
-    requirejs(['modernizr','angular','jquery', 'moment', 'placeholders'], function(m, angular, $, moment){
-        var lang = 'fr';
-        require(['angular-i18-'+lang, 'underscore', 'app/main' ]);
+    requirejs(['modernizr', 'angular','jquery', 'moment'], function(m, angular, $, moment){
+        var lang = 'en';
+        require(['angular-i18-'+lang, 'underscore', 'app/main', 'gumby-init']);
     });
 })(requirejs);

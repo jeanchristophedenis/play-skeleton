@@ -4,26 +4,31 @@
 <div class="skeleton-container" data-ng-controller="TodoCtrl" ng-class="{'ready':ctrlReady}">
     <div class="row">
         <div class="twelve columns">
-            <form id="new-todo-form" name="newTodoForm" role="form" ng-submit="newTodoForm.$invalid || create()">
-                <ul class="six columns">
-                    <li class="field">
-                        <label class="inline" for="name">Name</label>
-                        <input type="text" required class="input" id="name" placeholder="name" data-ng-model="newTodo.name">
-                    </li>
-                </ul>
-                <ul class="six columns">
-                    <li class="field">
-                        <label class="inline" for="description">Description</label>
-                        <input type="text" required class="input" id="description" placeholder="description" data-ng-model="newTodo.description">
-                    </li>
-                </ul>
-                <ul>
-                    <div class="three columns">
-                        <div class="medium primary btn metro icon-left entypo icon-down-circled"><a type="submit" href="#" ng-class="{'disabled' : newTodoForm.$invalid || isLoading()}" ng-click="newTodoForm.$invalid || create()" >Save</a></div>
-                        <div class="medium warning btn metro"><a href="#" ng-click="resetForm()">Reset</a></div>
-                    </div>
-                </ul>
+            <form id="new-todo-form" name="newTodoForm" role="form">
+                <fieldset>
+                    <legend>Add a new todo: </legend>
+                    <ul class="six columns">
+                        <li class="field" ng-class="{'warning': newTodoForm.name.$dirty && newTodoForm.name.$error.required}">
+                            <input type="text" required class="input" id="name" name="name" placeholder="name" data-ng-model="newTodo.name">
+                        </li>
+                    </ul>
+                    <ul class="six columns">
+                        <li class="field" ng-class="{'warning': newTodoForm.description.$dirty && newTodoForm.description.$error.required}">
+                            <input type="text" required class="input" id="description" name="description" placeholder="description" data-ng-model="newTodo.description">
+                        </li>
+                    </ul>
+                    <ul>
+                        <div class="twelve columns">
+                            <div class="medium primary btn metro"><button type="submit" ng-disabled="newTodoForm.$invalid || isLoading()" ng-click="newTodoForm.$invalid || create()" ><i class="icon-left icon-down-circled"></i>Save</button></div>
+                            <div class="medium warning btn metro"><a href="#" ng-click="resetForm()">Reset</a></div>
+                        </div>
+                    </ul>
+                </fieldset>
             </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
             <table class="table">
                 <thead>
                     <tr>
@@ -35,7 +40,7 @@
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="todo in todos">
-                        <td><span class="icon-danger" ng-click="remove($index)"></span></td>
+                        <td><i class="icon-cancel-circled action-danger" ng-click="remove($index)"></i></td>
                         <td>{{todo.name}}</td>
                         <td>{{todo.description}}</td>
                         <td><input type="checkbox" ng-model="todo.done" ng-change="updateStatus($index)"></td>

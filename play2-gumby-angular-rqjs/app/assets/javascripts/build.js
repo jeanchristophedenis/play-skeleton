@@ -2,7 +2,6 @@ requirejs.config({
     packages: ['app/todo'],
     shim: {
         'jquery': { exports: '$' },
-        'jquery-cookie' : ['jquery'],
         'angular' : { exports : 'angular' },
         'angular-resource' : ['angular'],
         'angular-route': ['angular'],
@@ -16,10 +15,8 @@ requirejs.config({
     },
     paths: {
         'jquery': 'empty:',
-        'jquery-cookie' : 'lib/jquery.cookie.min',
-        'modernizr': 'empty:',
+        'modernizr' : 'lib/gumby/libs/modernizr-2.6.2',
         'moment':'//cdnjs.cloudflare.com/ajax/libs/moment.js/2.3.1/moment.min',
-        'placeholders':'lib/placeholders.min',
         'angular': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min',
         'angular-resource': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-resource.min',
         'angular-route': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-route.min',

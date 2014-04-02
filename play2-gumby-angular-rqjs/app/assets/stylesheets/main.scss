@@ -5,17 +5,17 @@ $warningColorDisabled:rgba($warningColor, .1);
 $warningColorNoHover:rgba($warningColor, .7);
 
 .skeleton-container {
-    padding-top:50px;
+    padding-top:20px;
     opacity:0;
     &.ready { opacity:1;}
 }
 
-.icon-danger {
+.action-danger {
     cursor:pointer;
 }
 
 .touch {
-    .icon-danger {
+    .action-danger {
         color:$warningColor;
          &.disabled {
             color:$warningColorDisabled;
@@ -24,30 +24,11 @@ $warningColorNoHover:rgba($warningColor, .7);
 }
 
 .no-touch {
-    .icon-danger {
+    .action-danger {
         color:$warningColorNoHover;
         &:hover { color:$warningColor; }
         &.disabled, &.disabled:hover {
             color:$warningColorDisabled;
         }
-    }
-}
-
-form {
-
-    .error-info {
-        color:#f30;
-    }
-
-    .validation-info {
-        color:#2ba6cb;
-    }
-
-    input.ng-invalid.ng-dirty, select.ng-invalid.ng-dirty {
-        background-color: #ffffc5;
-        color:#f30;
-    }
-
-    input.ng-valid.ng-dirty, select.ng-valid.ng-dirty {
     }
 }

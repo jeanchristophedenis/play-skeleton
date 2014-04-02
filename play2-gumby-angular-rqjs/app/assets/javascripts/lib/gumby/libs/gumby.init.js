@@ -3,7 +3,6 @@
 */
 
 !function($) {
-
 	'use strict';
 
 	// not touch device or no touch events required so auto initialize here

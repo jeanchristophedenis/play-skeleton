@@ -14,7 +14,11 @@
         'angular-i18-en' : ['angular'],
         'angular-i18-fr' : ['angular'],
         'angular-i18-de' : ['angular'],
-        'angular-i18-pt' : ['angular']
+        'angular-i18-pt' : ['angular'],
+        'gumby' : ['jquery'],
+        'gumby-init' : ['gumby'],
+        'gumby-plugins' : ['gumby-init'],
+        'gumby-main' : ['gumby-init']
       },
       paths: {
         'modernizr' : 'lib/gumby/libs/modernizr-2.6.2.min',
@@ -28,7 +32,11 @@
         'angular-i18-fr' : '//cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.10/angular-locale_fr-fr',
         'angular-i18-de' : '//cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.10/angular-locale_de-de',
         'angular-i18-en' : '//cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.10/angular-locale_en',
-        'underscore': ['//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min', 'lib/underscore-min']
+        'underscore' : ['//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min', 'lib/underscore-min'],
+        'gumby' : 'lib/gumby/libs/gumby',
+        'gumby-init' : 'lib/gumby/libs/gumby.init',
+        'gumby-plugins' : 'lib/gumby/plugins',
+        'gumby-main' : 'lib/gumby/main'
       },
       priority: ['angular', 'jquery']
     });
@@ -39,6 +47,6 @@
 
     requirejs(['modernizr', 'angular','jquery', 'moment'], function(m, angular, $, moment){
         var lang = 'en';
-        require(['angular-i18-'+lang, 'underscore', 'app/main', 'gumby-init']);
+        require(['angular-i18-'+lang, 'underscore', 'app/main', 'gumby-load']);
     });
 })(requirejs);

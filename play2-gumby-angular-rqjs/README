@@ -1,5 +1,7 @@
 To make it work :
 
 gem install sass -v 3.2.18
-gem install compass -v 0.12.2
+gem install compass -v 0.12.4
+
+### AND VERY IMPORTANT : ####
 gem install modular-scale -v 1.0.6
